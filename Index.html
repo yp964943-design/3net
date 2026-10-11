@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengalihkan ke Aplikasi...</title>
+    <script>
+        // =========================================================================
+        // Ganti URL di bawah ini dengan URL Web App Google Apps Script Anda (/exec)
+        // =========================================================================
+        const targetBaseUrl = "https://script.google.com/macros/s/AKfycbwHR-6mYD8wZKQG7KAkhIrI-yp2GiKgXj324jjEvfH7NM2KyWxmc5TirMxA61W9jgNw/exec";
+        
+        // Otomatis mengambil parameter URL (jika ada) agar ikut diteruskan
+        const queryString = window.location.search;
+        
+        // Mengalihkan halaman secara instan
+        window.location.replace(targetBaseUrl + queryString);
+    </script>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f9f9f9; font-family: sans-serif; color: #333;">
+    <div style="text-align: center;">
+        <p style="font-size: 16px; margin-bottom: 10px;">Sedang mengalihkan ke sistem...</p>
+        <p style="font-size: 14px; color: #666;">Jika Anda tidak otomatis dialihkan dalam beberapa detik, silakan <a id="fallbackLink" href="#" style="color: #1a73e8; text-decoration: none;">klik di sini</a>.</p>
+    </div>
+
+    <script>
+        // Mengisi tautan fallback secara otomatis termasuk parameternya
+        const fullUrl = targetBaseUrl + window.location.search;
+        document.getElementById('fallbackLink').href = fullUrl;
+    </script>
+</body>
+</html>
